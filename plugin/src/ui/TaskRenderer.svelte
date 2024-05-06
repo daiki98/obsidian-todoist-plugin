@@ -53,6 +53,8 @@
   $: priorityClass = getPriorityClass(taskTree.priority);
   $: dateTimeClass = getDateTimeClass(dateInfo);
 
+  $: showProjectNameOnly = query.showProjectNameOnly;
+
   function getDueDateLabel(info: DueDateInfo): string {
     if (!info.hasDueDate()) {
       return "";
@@ -143,8 +145,23 @@
   }
 </script>
 
-<li
-  on:contextmenu={onClickTaskContainer}
+{#if showProjectNameOnly}
+  <li
+    on:contextmenu={onClickTaskContainer}
+    transition:fade={{ duration: $settings.fadeToggle ? 400 : 0 }}
+    class="task-list-item {priorityClass} {dateTimeClass}"
+  >
+    <div class="todoist-task-container">
+      <a data-tooltip-position="top" aria-label="outputs/issue/{projectLabel}.md" data-href="outputs/issue/{projectLabel}.md" href="outputs/issue/{projectLabel}.md" class="internal-link" target="_blank" rel="noopener">
+        ・<MarkdownRenderer class="todoist-task-content" content={projectLabel} />
+      </a>
+    </div>
+  </li>
+{/if}
+
+{#if !showProjectNameOnly}
+  <li
+    on:contextmenu={onClickTaskContainer}
   transition:fade={{ duration: $settings.fadeToggle ? 400 : 0 }}
   class="task-list-item {priorityClass} {dateTimeClass}"
 >
@@ -195,3 +212,4 @@
     <TaskList taskTrees={taskTree.children} />
   {/if}
 </li>
+{/if}

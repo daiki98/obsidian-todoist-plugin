@@ -14,6 +14,18 @@
   $: taskTrees = getTaskTree(tasks);
 
   function getTaskTree(tasks: Task[]): TaskTree[] {
+    if (query.showProjectNameOnly) {
+      let projectLabelSet = new Set<string>();
+      let arrangedTasks = []
+      tasks.map(task => {
+        if (!projectLabelSet.has(task.project?.id)) {
+          projectLabelSet.add(task.project?.id);
+          arrangedTasks.push(task);
+        }
+      })
+      sortTasks(arrangedTasks, query.sorting);
+      return buildTaskTree(arrangedTasks);
+    }
     sortTasks(tasks, query.sorting);
     return buildTaskTree(tasks);
   }

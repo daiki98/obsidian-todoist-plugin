@@ -81,6 +81,7 @@ function parseObject(query: Record<string, unknown>): [Query, QueryWarning[]] {
       name: stringField(query, "name") ?? "",
       filter: asRequired("filter", stringField(query, "filter")),
       autorefresh: numberField(query, "autorefresh", { isPositive: true }) ?? 0,
+      showProjectNameOnly: booleanField(query, "showProjectNameOnly") ?? false,
       sorting: optionsArrayField(query, "sorting", sortingLookup) ?? [SortingVariant.Order],
       show: new Set(
         optionsArrayField(query, "show", showMetadataVariantLookup) ??

@@ -28,6 +28,7 @@ export type Query = {
   name: string;
   filter: string;
   autorefresh: number;
+  showProjectNameOnly: boolean;
   sorting: SortingVariant[];
   show: Set<ShowMetadataVariant>;
   groupBy: GroupVariant;
