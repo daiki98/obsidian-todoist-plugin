@@ -152,7 +152,7 @@
     class="task-list-item {priorityClass} {dateTimeClass}"
   >
     <div class="todoist-task-container">
-      <a data-tooltip-position="top" aria-label="outputs/issue/{projectLabel}.md" data-href="outputs/issue/{projectLabel}.md" href="outputs/issue/{projectLabel}.md" class="internal-link" target="_blank" rel="noopener">
+      <a data-tooltip-position="top" aria-label="outputs/projects/{projectLabel}.md" data-href="outputs/projects/{projectLabel}.md" href="outputs/projects/{projectLabel}.md" class="internal-link" target="_blank" rel="noopener">
         ・<MarkdownRenderer class="todoist-task-content" content={projectLabel} />
       </a>
     </div>
@@ -175,7 +175,7 @@
         await taskActions.close(taskTree.id);
       }}
     />
-    <a data-tooltip-position="top" aria-label="outputs/issue/{sanitizedContent}.md" data-href="outputs/issue/{sanitizedContent}.md" href="outputs/issue/{sanitizedContent}.md" class="internal-link" target="_blank" rel="noopener">
+    <a data-tooltip-position="top" aria-label="outputs/projects/{sanitizedContent}.md" data-href="outputs/projects/{sanitizedContent}.md" href="outputs/projects/{sanitizedContent}.md" class="internal-link" target="_blank" rel="noopener">
       <MarkdownRenderer class="todoist-task-content" content={sanitizedContent} />
     </a>
   </div>
