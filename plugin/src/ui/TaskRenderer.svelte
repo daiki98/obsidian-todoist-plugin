@@ -175,9 +175,7 @@
         await taskActions.close(taskTree.id);
       }}
     />
-    <a data-tooltip-position="top" aria-label="outputs/projects/{sanitizedContent}.md" data-href="outputs/projects/{sanitizedContent}.md" href="outputs/projects/{sanitizedContent}.md" class="internal-link" target="_blank" rel="noopener">
-      <MarkdownRenderer class="todoist-task-content" content={sanitizedContent} />
-    </a>
+    <MarkdownRenderer class="todoist-task-content" content={sanitizedContent} />
   </div>
   {#if shouldRenderDescription}
     <DescriptionRenderer description={taskTree.description} />
